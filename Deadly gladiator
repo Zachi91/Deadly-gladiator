@@ -1,0 +1,72 @@
+            const string Punch1 = "1";
+            const string Punch2 = "2";
+            const string Punch3 = "3";
+            const string Punch4 = "4";
+
+            string userInput;
+            int heroHealth = 100;
+            int enemyHealth = 100;
+            int heroDamage;
+            int enemyDamage = 30;
+
+            Console.WriteLine("Вы перед врагом");
+            while (heroHealth > 0 && enemyHealth > 0)
+            {
+                Console.WriteLine("Выберете магию атаки: 1 - огонь, 2 - земля, 3 - вода, 4 - ветер");
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case Punch1:
+                        Console.WriteLine("Вы подожгли противника, ему это не понравилось.");
+                        heroDamage = 30;
+                        enemyHealth -= heroDamage;
+                        heroHealth -= enemyDamage;
+                        Console.WriteLine($"Ваше здоровье - {heroHealth}, а урон {heroDamage}.");
+                        Console.WriteLine($"Здоровье противника - {enemyHealth}, а его урон {enemyDamage}");
+                        break;
+                    case Punch2:
+                        Console.WriteLine("Вы бросили в глаза противника землю, как ни странно, его это не смутило и он продолжил атаку.");
+                        heroDamage = 10;
+                        enemyHealth -= heroDamage;
+                        heroHealth -= enemyDamage;
+                        Console.WriteLine($"Ваше здоровье - {heroHealth}, а урон {heroDamage}.");
+                        Console.WriteLine($"Здоровье противника - {enemyHealth}, а его урон {enemyDamage}");
+                        break;
+                    case Punch3:
+                        Console.WriteLine("Вы набрали воду из колодца и облили противника. Он удивился.");
+                        heroDamage = 10;
+                        enemyHealth -= heroDamage;
+                        heroHealth -= enemyDamage;
+                        Console.WriteLine($"Ваше здоровье - {heroHealth}, а урон {heroDamage}.");
+                        Console.WriteLine($"Здоровье противника - {enemyHealth}, а его урон {enemyDamage}");
+                        break;
+                    case Punch4:
+                        Console.WriteLine("Вы подбросили противника в воздух, после чего он шлёпнулся оземь.");
+                        heroDamage = 40;
+                        enemyHealth -= heroDamage;
+                        heroHealth -= enemyDamage;
+                        Console.WriteLine($"Ваше здоровье - {heroHealth}, а урон {heroDamage}.");
+                        Console.WriteLine($"Здоровье противника - {enemyHealth}, а его урон {enemyDamage}");
+                        break;
+                    default:
+                        Console.WriteLine("Вы не сумели произвести атаку написав неправильную команду");
+                        Console.WriteLine("Противник понял это и подло засадил Вам заточкой по печени");
+                        heroHealth -= enemyDamage;
+                        Console.WriteLine($"Ваше здоровье - {heroHealth}.");
+                        Console.WriteLine($"Здоровье противника - {enemyHealth}, а его урон {enemyDamage}");
+                        break;
+                }
+            }
+            if (heroHealth <= 0 && enemyHealth <= 0)
+            {
+                Console.WriteLine("Ценою своей жизни Вы остановили монстра...");
+            }
+            else if (heroHealth <= 0)
+            {
+                Console.WriteLine("Вы мертвы...");
+            }
+            else if (enemyHealth <= 0)
+            {
+                Console.WriteLine("Вы одержали победу!");
+            }
+            Console.ReadKey();
